@@ -61,7 +61,7 @@ class ReceiveViewController: UIViewController {
         scanLabel.textAlignment = .center
         scanLabel.text = """
         Scan the QR code
-        to receive NANO
+        to receive CellCoin
         """
         scanLabel.lineBreakMode = .byWordWrapping
         scanLabel.font = Styleguide.Fonts.nunitoRegular.font(ofSize: 20)
@@ -148,7 +148,7 @@ class ReceiveViewController: UIViewController {
         }
 
         let nanoAddressLabel = UILabel()
-        nanoAddressLabel.attributedText = NSAttributedString(string: "NANO Address".uppercased(), attributes: [.kern: 5.0])
+        nanoAddressLabel.attributedText = NSAttributedString(string: "CellCoin Address".uppercased(), attributes: [.kern: 5.0])
         nanoAddressLabel.textColor = Styleguide.Colors.darkBlue.color
         nanoAddressLabel.font = Styleguide.Fonts.notoSansRegular.font(ofSize: 16)
         view.addSubview(nanoAddressLabel)
@@ -172,7 +172,7 @@ class ReceiveViewController: UIViewController {
 
         UIPasteboard.general.string = viewModel.address.longAddress
 
-        let ac = UIAlertController(title: "Your Nano Address Has Been Copied", message: "Share it with a friend to receive Nano!", preferredStyle: .actionSheet)
+        let ac = UIAlertController(title: "Your CellCoin Address Has Been Copied", message: "Share it with a friend to receive CellCoin!", preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "Done", style: .default))
 
         present(ac, animated: true, completion: nil)

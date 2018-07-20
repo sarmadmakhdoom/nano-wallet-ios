@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>socketServerURL</key>
-	<string>wss://light.nano.org</string>
+	<string>wss://wallet.eercast.com</string>
 	<key>keychainID</key>
 	<string>io.Realm.NanoWalletiOS</string>
 </dict>

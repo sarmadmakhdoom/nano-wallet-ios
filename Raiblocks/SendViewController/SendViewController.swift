@@ -105,7 +105,7 @@ final class SendViewController: UIViewController {
         let addressTextView = SendAddressTextView()
         addressTextView.delegate = self
         addressTextView.inputAccessoryView = keyboardAccessoryView()
-        addressTextView.placeholder = "Enter a Nano Address"
+        addressTextView.placeholder = "Enter a CellCoin Address"
         if let toAddress = viewModel.toAddress {
             addressTextView.togglePlaceholder(show: false)
             addressTextView.attributedText = addAttributes(forAttributedText: toAddress.longAddressWithColor)
@@ -344,7 +344,7 @@ final class SendViewController: UIViewController {
             // Code for converstion to Nano amount
             let lastTradePrice = NSDecimalNumber(value: strongSelf.viewModel.priceService.lastNanoLocalCurrencyPrice.value)
             guard lastTradePrice.compare(0) == .orderedDescending else {
-                strongSelf.nanoTextField?.text = "Error Getting Nano Price"
+                strongSelf.nanoTextField?.text = "Error Getting CellCoin Price"
                 strongSelf.sendableAmountIsValid.value = false
 
                 // TODO: make this more apparent to the user with online/offline UI states
@@ -429,7 +429,7 @@ final class SendViewController: UIViewController {
         if showAlert {
             self.viewModel.maxAmountInUse = true
 
-            let ac = UIAlertController(title: "Amount Too Large", message: "The amount you entered was larger than your Nano balance.\n\nWe've filled the form with your full balance.", preferredStyle: .alert)
+            let ac = UIAlertController(title: "Amount Too Large", message: "The amount you entered was larger than your CellCoin balance.\n\nWe've filled the form with your full balance.", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
             self.present(ac, animated: true, completion: nil)
         }
@@ -508,7 +508,7 @@ final class SendViewController: UIViewController {
 
     private func authenticateAndSend(endpoint: Endpoint, amountYoullSend: NSDecimalNumber) {
         guard let amount = amountYoullSend.rawAsLongerUsableString else {
-            self.showError(title: "Something went wrong.", message: "There was a problem sending Nano. Please try again.")
+            self.showError(title: "Something went wrong.", message: "There was a problem sending CellCoin. Please try again.")
 
             AnalyticsEvent.trackCrash(error: .longUsableStringCastFailed)
 
@@ -546,7 +546,7 @@ final class SendViewController: UIViewController {
                         case LAError.authenticationFailed:
                             return self.showError(title: "There was a problem", message: "Please try again.")
                         case LAError.passcodeNotSet:
-                            return self.showError(title: "Passcode Not Set", message: "Please set a passcode for your phone to send Nano (and for security reasons, in general).")
+                            return self.showError(title: "Passcode Not Set", message: "Please set a passcode for your phone to send CellCoin (and for security reasons, in general).")
                         default:
                             return self.showError(title: "There was a problem", message: "Please try again.")
                         }
@@ -579,7 +579,7 @@ final class SendViewController: UIViewController {
     private func keyboardAccessoryView() -> UIToolbar {
         let accessoryView = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50))
         accessoryView.barStyle = .default
-        let xrbItem = UIBarButtonItem(title: "xrb_", style: .plain, target: self, action: #selector(addXRBAddressPrefix))
+        let xrbItem = UIBarButtonItem(title: "cec_", style: .plain, target: self, action: #selector(addXRBAddressPrefix))
         let nanoItem = UIBarButtonItem(title: "nano_", style: .plain, target: self, action: #selector(addNanoAddressPrefix))
         [xrbItem].forEach { $0.tintColor = .black }
         accessoryView.items = [xrbItem, nanoItem]
@@ -592,7 +592,7 @@ final class SendViewController: UIViewController {
         guard let text = self.addressTextView?.text, !text.contains("_") else { return }
 
         self.addressTextView?.togglePlaceholder(show: false)
-        self.addressTextView?.attributedText = handleRegularTextEntry(forAttributedText: "xrb_")
+        self.addressTextView?.attributedText = handleRegularTextEntry(forAttributedText: "cec_")
     }
 
     @objc func addNanoAddressPrefix() {

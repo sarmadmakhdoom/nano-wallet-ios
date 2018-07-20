@@ -345,7 +345,7 @@ final class SettingsViewController: UIViewController {
     }
 
     @objc func logOut() {
-        let ac = UIAlertController(title: "Are you sure you want to log out?", message: "Logging out will remove your Wallet Seed, keys and all of your Nano-related data from this device.", preferredStyle: .actionSheet)
+        let ac = UIAlertController(title: "Are you sure you want to log out?", message: "Logging out will remove your Wallet Seed, keys and all of your CellCoin-related data from this device.", preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "Log Out", style: .destructive) { _ in
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LogOut"), object: nil)
         })

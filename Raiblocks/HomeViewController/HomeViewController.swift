@@ -257,7 +257,7 @@ class HomeViewController: UIViewController {
 
     private func showAlertWhenOffline(endRefreshing: Bool = false) {
         let ac = UIAlertController(title: "You are offline", message: """
-            Nano Wallet is having trouble connecting to the network right now.
+            CellCoin Wallet is having trouble connecting to the network right now.
 
             Please try again.
         """, preferredStyle: .alert)

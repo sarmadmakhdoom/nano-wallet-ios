@@ -74,7 +74,7 @@ class ShareCard: UIView {
         let nanoLabel = UILabel()
         nanoLabel.textColor = .white
         nanoLabel.font = Styleguide.Fonts.nunitoLight.font(ofSize: 27)
-        let text = NSMutableAttributedString(string: "NANO")
+        let text = NSMutableAttributedString(string: "CellCoin")
         text.addAttribute(.kern, value: 4.0, range: NSMakeRange(0, text.length))
         nanoLabel.attributedText = text
 

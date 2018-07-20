@@ -189,7 +189,7 @@ class ScannerViewContoller: UIViewController {
     func checkDeviceAuthorizationStatus() {
         AVCaptureDevice.requestAccess(for: .video) { granted in
             if !granted {
-                let ac = UIAlertController(title: "Uh oh!", message: "Nano Wallet doesn't have permission to use the camera.\n\nPlease turn on camera settings under Nano Wallet preferences.", preferredStyle: .alert)
+                let ac = UIAlertController(title: "Uh oh!", message: "CellCoin Wallet doesn't have permission to use the camera.\n\nPlease turn on camera settings under CellCoin Wallet preferences.", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "Take Me to Settings", style: .default) { _ in
                     UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
                 })

@@ -27,7 +27,7 @@ enum AnalyticsEvent: String {
     case localCurrencySelected = "Local Currency Selected"
     case logOut = "User Logged Out"
     case missingCredentials = "App crashed due to missing Credentials"
-    case nanoAddressCopied = "Nano Address Copied"
+    case nanoAddressCopied = "CellCoin Address Copied"
     case receiveMathError = "Receive Math Error"
     case seedCopyFailed = "Seed Copy Failed"
     case seedCopied = "Seed Copied"

@@ -134,7 +134,7 @@ class SeedConfirmationViewController: UIViewController {
         textBody.isUserInteractionEnabled = true
         textBody.isEditable = false
         textBody.isSelectable = false
-        let attributedText = NSMutableAttributedString(string: "Your Nano Wallet Seed is a unique code that enables you to access your wallet on the Nano network.\n\nIt is the only way for you to recover your wallet and access any Nano currency you may have.\n\nWe do not have access to it and cannot recover your Wallet Seed or any funds in your wallet without your Wallet Seed.\n\nYou are solely responsible for recording your Wallet Seed in a safe and secure place and manner. Never share your Wallet Seed with anyone.")
+        let attributedText = NSMutableAttributedString(string: "Your CellCoin Wallet Seed is a unique code that enables you to access your wallet on the CellCoin network.\n\nIt is the only way for you to recover your wallet and access any CellCoin currency you may have.\n\nWe do not have access to it and cannot recover your Wallet Seed or any funds in your wallet without your Wallet Seed.\n\nYou are solely responsible for recording your Wallet Seed in a safe and secure place and manner. Never share your Wallet Seed with anyone.")
         attributedText.addAttribute(.foregroundColor, value: Styleguide.Colors.darkBlue.color, range: NSMakeRange(0, attributedText.length))
         attributedText.addAttribute(.font, value: Styleguide.Fonts.nunitoRegular.font(ofSize: 16), range: NSMakeRange(0, attributedText.length))
 
@@ -181,7 +181,7 @@ class SeedConfirmationViewController: UIViewController {
     @objc func continueButtonWasPressed() {
         AnalyticsEvent.seedConfirmatonContinueButtonPressed.track()
 
-        let ac = UIAlertController(title: "Welcome to Nano Wallet!", message: "Please confirm you have properly stored your Wallet Seed somewhere safe.", preferredStyle: .actionSheet)
+        let ac = UIAlertController(title: "Welcome to CellCoin Wallet!", message: "Please confirm you have properly stored your Wallet Seed somewhere safe.", preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "I have backed up my Wallet Seed", style: .default) { _ in
             self.navigationController?.pushViewController(HomeViewController(viewModel: HomeViewModel()), animated: true)
         })

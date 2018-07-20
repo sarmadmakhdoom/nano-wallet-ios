@@ -183,7 +183,7 @@ final class HomeViewModel {
         NotificationCenter.default.addObserver(self, selector: #selector(appWasReopened(_:)), name: Notification.Name(rawValue: "ReestablishConnection"), object: nil)
 
         socket.event.open = {
-//            print("socket opened")
+            print("socket opened")
             self._hasNetworkConnection.value = true
 
             self.socket.sendMultiple(endpoints: [
@@ -196,17 +196,17 @@ final class HomeViewModel {
             AnalyticsEvent.socketClosedHome.track(customAttributes: ["code": code, "reason": reason])
 
             self._hasNetworkConnection.value = false
-            // print("CONNECTION WAS CLOSED")
+             print("CONNECTION WAS CLOSED")
         }
 
         socket.event.error = { error in
             AnalyticsEvent.socketErrorHome.track(customAttributes: ["error": error.localizedDescription])
-            // print("error \(error)")
+             print("error \(error)")
         }
 
         self.socket.event.message = { message in
-//            print(message) // Uncomment for development
-//            print("")
+            print(message) // Uncomment for development
+            print("")
             guard let str = message as? String, let data = str.asUTF8Data() else { return }
 
             if let accountCheck = genericDecoder(decodable: AccountCheck.self, from: data) {

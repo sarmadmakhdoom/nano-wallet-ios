@@ -20,7 +20,7 @@ import UIKit.UIColor
     }
 
     var hasXrbAddressFormat: Bool {
-        return value.contains("xrb_")
+        return value.contains("cec_")
     }
 
     var hasNanoAddressFormat: Bool {
