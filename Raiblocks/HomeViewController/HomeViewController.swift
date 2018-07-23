@@ -222,6 +222,7 @@ class HomeViewController: UIViewController {
                 showAnalyticsAlert()
             }
         }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -354,7 +355,7 @@ extension HomeViewController: UITableViewDelegate {
 
     private func showExplorerAlert(forIndexPath indexPath: IndexPath) {
         let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        ac.addAction(UIAlertAction(title: "Send Nano to Address", style: .default) { _ in
+        ac.addAction(UIAlertAction(title: "Send CellCoin to Address", style: .default) { _ in
             let vc = SendViewController(viewModel: SendViewModel(homeSocket: self.viewModel.socket, toAddress: self.viewModel.transactions.value[indexPath.row].fromAddress))
             vc.delegate = self
 

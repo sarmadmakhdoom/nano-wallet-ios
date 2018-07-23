@@ -33,6 +33,7 @@ final class SendViewModel {
 
     private (set) var work: String?
     var workErrorClosure: (() -> Void)?
+    var workCalculated: (() -> Void)?
 
     var privateKeyData: Data {
         return credentials.privateKey
@@ -197,6 +198,7 @@ final class SendViewModel {
             RaiCore().createWork(previousHash: accountInfo.frontier) { createdWork in
                 if let createdWork = createdWork {
                     self.work = createdWork
+                    self.workCalculated?()
                 } else {
                     AnalyticsEvent.errorGeneratingWorkForSending.track()
 

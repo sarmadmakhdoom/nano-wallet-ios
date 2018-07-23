@@ -37,6 +37,7 @@ final class SendViewController: UIViewController {
     private weak var localCurrencyTextField: SendTextField?
     private weak var activeTextField: UITextField?
     private weak var sendButton: NanoButton?
+    private var workCalculated = false
 
     private var isScanningAmount: Bool = false
 
@@ -62,7 +63,7 @@ final class SendViewController: UIViewController {
             .observe(on: UIScheduler())
             .startWithValues { [weak self] in
                 let state = self?.viewModel.socket.readyState == .open
-                self?.sendButton?.isEnabled = ($0 && $1 && $2 && state)
+                self?.sendButton?.isEnabled = ($0 && $1 && $2 && state && self?.workCalculated ?? false)
             }
 
         viewModel.socket.event.open = { [weak self] in
@@ -204,7 +205,8 @@ final class SendViewController: UIViewController {
         }
 
         let sendButton = NanoButton(withType: .lightBlueSend)
-        sendButton.setAttributedTitle("SEND")
+        sendButton.setAttributedTitle("Calculating")
+        
         sendButton.addTarget(self, action: #selector(sendNano), for: .touchUpInside)
         sendButton.isEnabled = false
         bottomSection.addSubview(sendButton)
@@ -241,6 +243,11 @@ final class SendViewController: UIViewController {
             })
 
             self?.present(ac, animated: true, completion: nil)
+        }
+        
+        viewModel.workCalculated = { [weak self] in
+            self?.workCalculated = true
+            self?.sendButton?.setAttributedTitle("SEND")
         }
 
         // MARK: - SendTextField producers (handles text)
@@ -522,7 +529,7 @@ final class SendViewController: UIViewController {
         var error: NSError?
 
         if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
-            let reason = "Send \(amount) Nano?"
+            let reason = "Send \(amount) CellCoin?"
 
             context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { [unowned self] success, error in
                 DispatchQueue.main.async {
@@ -580,9 +587,9 @@ final class SendViewController: UIViewController {
         let accessoryView = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50))
         accessoryView.barStyle = .default
         let xrbItem = UIBarButtonItem(title: "cec_", style: .plain, target: self, action: #selector(addXRBAddressPrefix))
-        let nanoItem = UIBarButtonItem(title: "nano_", style: .plain, target: self, action: #selector(addNanoAddressPrefix))
+//        let nanoItem = UIBarButtonItem(title: "nano_", style: .plain, target: self, action: #selector(addNanoAddressPrefix))
         [xrbItem].forEach { $0.tintColor = .black }
-        accessoryView.items = [xrbItem, nanoItem]
+        accessoryView.items = [xrbItem]
         accessoryView.sizeToFit()
 
         return accessoryView

@@ -72,7 +72,7 @@ class SeedConfirmationViewController: UIViewController {
         }
 
         let titleLabel = UILabel()
-        titleLabel.text = "Your Nano Wallet Seed"
+        titleLabel.text = "Your SellCoin Wallet Seed"
         titleLabel.textColor = Styleguide.Colors.darkBlue.color
         titleLabel.font = Styleguide.Fonts.nunitoRegular.font(ofSize: 20)
         view.addSubview(titleLabel)
@@ -138,7 +138,7 @@ class SeedConfirmationViewController: UIViewController {
         attributedText.addAttribute(.foregroundColor, value: Styleguide.Colors.darkBlue.color, range: NSMakeRange(0, attributedText.length))
         attributedText.addAttribute(.font, value: Styleguide.Fonts.nunitoRegular.font(ofSize: 16), range: NSMakeRange(0, attributedText.length))
 
-        attributedText.addAttribute(.foregroundColor, value: Styleguide.Colors.red.color, range: NSMakeRange(192, 119)) // Middle sentence "We do not have access..."
+        attributedText.addAttribute(.foregroundColor, value: Styleguide.Colors.red.color, range: NSMakeRange(204, 119)) // Middle sentence "We do not have access..."
         attributedText.addAttribute(.foregroundColor, value: Styleguide.Colors.red.color, range: NSMakeRange(attributedText.length - 42, 42)) // last sentence "Never give it..."
         textBody.attributedText = attributedText
         textBody.isScrollEnabled = true

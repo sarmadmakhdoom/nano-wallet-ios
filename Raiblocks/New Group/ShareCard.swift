@@ -69,6 +69,8 @@ class ShareCard: UIView {
         constrain(logo) {
             $0.top == $0.superview!.top
             $0.left == $0.superview!.left
+            $0.height == 20
+            $0.width == 10
         }
 
         let nanoLabel = UILabel()
@@ -94,7 +96,7 @@ class ShareCard: UIView {
             addressLabel.font = Styleguide.Fonts.notoSansRegular.font(ofSize: 16)
         }
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 6
+        paragraphStyle.lineSpacing = 4
         addressText.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, addressText.length))
         addressLabel.attributedText = addressText
         rightView.addSubview(addressLabel)
@@ -105,7 +107,7 @@ class ShareCard: UIView {
         }
 
         let cashtag = UILabel()
-        cashtag.text = "$nano"
+        cashtag.text = "$cec"
         if isiPhoneSE() {
             cashtag.font = Styleguide.Fonts.notoSansRegular.font(ofSize: 14)
         } else {
@@ -119,7 +121,7 @@ class ShareCard: UIView {
         }
 
         let website = UILabel()
-        website.text = "nano.org"
+        website.text = "cellcoin.cc"
         if isiPhoneSE() {
             website.font = Styleguide.Fonts.notoSansRegular.font(ofSize: 14)
         } else {

@@ -77,34 +77,34 @@ final class SettingsViewController: UIViewController {
         self.navigationItem.title = "Settings".uppercased()
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "dismissBlack"), style: .plain, target: self, action: #selector(dismissVC))
 
-        let localCurrencyButton = SettingsButton()
-        localCurrencyButton.setTitle("Show My Local Currency", for: .normal)
-        localCurrencyButton.addTarget(self, action: #selector(selectLocalCurrency), for: .touchUpInside)
-        view.addSubview(localCurrencyButton)
-        constrain(localCurrencyButton) {
-            $0.width == $0.superview!.width
-            $0.height == CGFloat(66)
-            $0.top == $0.superview!.top + (isiPhoneX() ? CGFloat(91) : CGFloat(64))
-        }
-        self.localCurrencyButton = localCurrencyButton
-
-        let divider = UIView()
-        divider.backgroundColor = UIColor.black.withAlphaComponent(0.2)
-        view.addSubview(divider)
-        constrain(divider, localCurrencyButton) {
-            $0.height == CGFloat(1)
-            $0.width == $1.width
-            $0.bottom == $1.bottom
-        }
+//        let localCurrencyButton = SettingsButton()
+//        localCurrencyButton.setTitle("Show My Local Currency", for: .normal)
+//        localCurrencyButton.addTarget(self, action: #selector(selectLocalCurrency), for: .touchUpInside)
+//        view.addSubview(localCurrencyButton)
+//        constrain(localCurrencyButton) {
+//            $0.width == $0.superview!.width
+//            $0.height == CGFloat(66)
+//            $0.top == $0.superview!.top + (isiPhoneX() ? CGFloat(91) : CGFloat(64))
+//        }
+//        self.localCurrencyButton = localCurrencyButton
+//
+//        let divider = UIView()
+//        divider.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+//        view.addSubview(divider)
+//        constrain(divider, localCurrencyButton) {
+//            $0.height == CGFloat(1)
+//            $0.width == $1.width
+//            $0.bottom == $1.bottom
+//        }
 
         let showSeedButton = SettingsButton()
         showSeedButton.setTitle("Copy My Wallet Seed", for: .normal)
         showSeedButton.addTarget(self, action: #selector(showSeed), for: .touchUpInside)
         view.addSubview(showSeedButton)
-        constrain(showSeedButton, localCurrencyButton) {
-            $0.width == $1.width
-            $0.height == $1.height
-            $0.top == $1.bottom
+        constrain(showSeedButton) {
+            $0.width == $0.superview!.width
+            $0.height == CGFloat(66)
+            $0.top == $0.superview!.top + (isiPhoneX() ? CGFloat(91) : CGFloat(64))
         }
 
         let divider2 = UIView()
@@ -246,11 +246,11 @@ final class SettingsViewController: UIViewController {
     }
 
     @objc func viewEula() {
-        self.present(WebViewController(url: URL(string: "https://nanowalletcompany.com/ios-eula")!, useForLegalPurposes: false), animated: true)
+        self.present(WebViewController(url: URL(string: "https://www.sellcast.com/")!, useForLegalPurposes: false), animated: true)
     }
 
     @objc func viewPrivacyPolicy() {
-        self.present(WebViewController(url: URL(string: "https://nanowalletcompany.com/mobile-privacy-policy")!, useForLegalPurposes: false), animated: true)
+        self.present(WebViewController(url: URL(string: "https://www.sellcast.com/")!, useForLegalPurposes: false), animated: true)
     }
 
     @objc func viewOnExplorer(_ sender: UIButton) {
