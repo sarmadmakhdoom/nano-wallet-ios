@@ -37,7 +37,7 @@ final class SendViewController: UIViewController {
     private weak var localCurrencyTextField: SendTextField?
     private weak var activeTextField: UITextField?
     private weak var sendButton: NanoButton?
-    private var workCalculated = false
+    private let workCalculated = MutableProperty<Bool>(false)
 
     private var isScanningAmount: Bool = false
 
@@ -57,13 +57,13 @@ final class SendViewController: UIViewController {
 
         AnalyticsEvent.sendViewed.track()
 
-        SignalProducer.combineLatest(sendAddressIsValid.producer, sendableAmountIsValid.producer, viewModel.headBlockIsValid.producer)
+        SignalProducer.combineLatest(sendAddressIsValid.producer, sendableAmountIsValid.producer, viewModel.headBlockIsValid.producer, workCalculated.producer)
             .producer
             .take(during: lifetime)
             .observe(on: UIScheduler())
             .startWithValues { [weak self] in
                 let state = self?.viewModel.socket.readyState == .open
-                self?.sendButton?.isEnabled = ($0 && $1 && $2 && state && self?.workCalculated ?? false)
+                self?.sendButton?.isEnabled = ($0 && $1 && $2 && state && $3)
             }
 
         viewModel.socket.event.open = { [weak self] in
@@ -246,7 +246,7 @@ final class SendViewController: UIViewController {
         }
         
         viewModel.workCalculated = { [weak self] in
-            self?.workCalculated = true
+            self?.workCalculated.value = true
             self?.sendButton?.setAttributedTitle("SEND")
         }
 
