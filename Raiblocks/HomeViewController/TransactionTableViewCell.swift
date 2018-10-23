@@ -66,7 +66,7 @@ final class TransactionTableViewCell: UITableViewCell {
         addSubview(amountLabel)
         constrain(amountLabel, nanoCurrencySymbol) {
             $0.centerY == $0.superview!.centerY
-            $0.left == $1.right + CGFloat(2)
+            $0.left == $1.right + CGFloat(5)
         }
         self.amountLabel = amountLabel
 
