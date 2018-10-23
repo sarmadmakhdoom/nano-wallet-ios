@@ -1,21 +1,21 @@
 PODS:
   - Cartography (2.1.0)
-  - Crashlytics (3.9.3):
-    - Fabric (~> 1.7.2)
+  - Crashlytics (3.10.9):
+    - Fabric (~> 1.7.13)
   - EFQRCode (4.1.0)
-  - Fabric (1.7.2)
+  - Fabric (1.7.13)
   - M13Checkbox (3.2.2)
   - ReactiveCocoa (7.0.1):
     - ReactiveSwift (~> 3.0)
   - ReactiveSwift (3.1.0):
     - Result (~> 3.2)
-  - Realm (3.3.0):
-    - Realm/Headers (= 3.3.0)
-  - Realm/Headers (3.3.0)
-  - RealmSwift (3.3.0):
-    - Realm (= 3.3.0)
+  - Realm (3.11.0):
+    - Realm/Headers (= 3.11.0)
+  - Realm/Headers (3.11.0)
+  - RealmSwift (3.11.0):
+    - Realm (= 3.11.0)
   - Result (3.2.4)
-  - SwiftWebSocket (2.6.5)
+  - SwiftWebSocket (2.7.0)
 
 DEPENDENCIES:
   - Cartography (~> 2.1.0)
@@ -25,7 +25,7 @@ DEPENDENCIES:
   - M13Checkbox
   - ReactiveCocoa (~> 7.0.1)
   - ReactiveSwift (~> 3.0)
-  - RealmSwift (~> 3.3.0)
+  - RealmSwift
   - SwiftWebSocket
 
 SPEC REPOS:
@@ -44,17 +44,17 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Cartography: 19c2223a8dfed35d82b098d365213b7ceb25ab2b
-  Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
+  Crashlytics: 55e24fc23989680285a21cb1146578d9d18e432c
   EFQRCode: f644c667b632a47bd0256e568418d9fc75dfce19
-  Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
+  Fabric: 25d0963b691fc97be566392243ff0ecef5a68338
   M13Checkbox: a8c2491cfbbca10797925fd0b9154a782bf40d89
   ReactiveCocoa: a1b5d502d0d1534f9a72981a485b297b17127f83
   ReactiveSwift: 5b26d2e988fe0eed2daf48c4054d1de74db50184
-  Realm: 7d74ad6c5020432f58fe5e1df90bb6d97b2c7fef
-  RealmSwift: b2fa31a09c22e246026766557405505eeaad2b01
+  Realm: 92f09a102692b96a9a10e9617f214f15c5ab85fc
+  RealmSwift: 5f0481cd658bb751c509314b964a35eaa264d2cf
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
-  SwiftWebSocket: 1ef8a0efb023544643bdf480c1ec4a62b204f293
+  SwiftWebSocket: 612c9729fd503cb6b0b8b45390c788686dac306f
 
-PODFILE CHECKSUM: 1f75c9d0d147ecae1d2606185c8243a2e1312f0c
+PODFILE CHECKSUM: 595e56a08a87ee4454cdb1c06768aa72e365df15
 
 COCOAPODS: 1.5.2

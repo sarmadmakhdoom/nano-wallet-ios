@@ -262,12 +262,12 @@ class HomeViewController: UIViewController {
 
             Please try again.
         """, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "View Account on Nanode", style: .default) { _ in
-            guard let url = URL(string: "https://www.nanode.co/account/" + self.address.longAddress) else { return }
-
-            self.present(WebViewController(url: url, useForLegalPurposes: false), animated: true, completion: nil)
-
-        })
+//        ac.addAction(UIAlertAction(title: "View Account on Nanode", style: .default) { _ in
+//            guard let url = URL(string: "https://www.nanode.co/account/" + self.address.longAddress) else { return }
+//
+//            self.present(WebViewController(url: url, useForLegalPurposes: false), animated: true, completion: nil)
+//
+//        })
         ac.addAction(UIAlertAction(title: "Dismiss", style: .cancel) { _ in
             if endRefreshing {
                 self.refreshControl?.endRefreshing()
@@ -378,7 +378,8 @@ extension HomeViewController: UITableViewDelegate {
     private func view(atIndexPath indexPath: IndexPath) {
         guard
             let hash = self.viewModel.transactions.value[indexPath.row].hash,
-            let url = URL(string: "https://www.nanode.co/block/" + hash)
+//            let url = URL(string: "https://www.nanode.co/block/" + hash)
+            let url = URL(string: "https://cellcoin.cc")
         else { return }
 
         self.present(WebViewController(url: url, useForLegalPurposes: false), animated: true, completion: nil)

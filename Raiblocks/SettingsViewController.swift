@@ -256,7 +256,8 @@ final class SettingsViewController: UIViewController {
     @objc func viewOnExplorer(_ sender: UIButton) {
         guard let address = userService.fetchCredentials()?.address else { return }
 
-        self.present(WebViewController(url: URL(string: "https://nanode.co/search/\(address.longAddress)")!, useForLegalPurposes: false), animated: true)
+//        self.present(WebViewController(url: URL(string: "https://nanode.co/search/\(address.longAddress)")!, useForLegalPurposes: false), animated: true)
+        self.present(WebViewController(url: URL(string: "https://cellcoin.cc/")!, useForLegalPurposes: false), animated: true)
     }
 
     func authenticateUser() {

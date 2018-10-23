@@ -12,7 +12,7 @@ import Cartography
 
 final class NanoButton: UIButton {
 
-    enum ButtonType {
+    enum ButtonTypeNano {
         case lightBlue, lightBlueSend, darkBlue, orange, grey
 
         var textColor: UIColor {
@@ -40,11 +40,12 @@ final class NanoButton: UIButton {
         }
     }
 
-    init(withType type: ButtonType) {
+    init(withType type: ButtonTypeNano) {
         super.init(frame: .zero)
 
         layer.cornerRadius = 3
         clipsToBounds = true
+        
 
         titleLabel?.textColor = type.textColor
         titleLabel?.font = Styleguide.Fonts.notoSansRegular.font(ofSize: 17)
