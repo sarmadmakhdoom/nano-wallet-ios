@@ -246,11 +246,11 @@ final class SettingsViewController: UIViewController {
     }
 
     @objc func viewEula() {
-        self.present(WebViewController(url: URL(string: "https://www.sellcast.com/")!, useForLegalPurposes: false), animated: true)
+        self.present(WebViewController(url: URL(string: "https://cellcoin.cc/terms")!, useForLegalPurposes: false), animated: true)
     }
 
     @objc func viewPrivacyPolicy() {
-        self.present(WebViewController(url: URL(string: "https://www.sellcast.com/")!, useForLegalPurposes: false), animated: true)
+        self.present(WebViewController(url: URL(string: "https://cellcoin.cc/privacy")!, useForLegalPurposes: false), animated: true)
     }
 
     @objc func viewOnExplorer(_ sender: UIButton) {
