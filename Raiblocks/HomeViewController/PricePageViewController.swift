@@ -34,7 +34,7 @@ class PricePageViewController: UIPageViewController {
 
         vcs = [
             PriceViewController(type: .nano, viewModel: viewModel),
-            PriceViewController(type: .btc, viewModel: viewModel),
+//            PriceViewController(type: .btc, viewModel: viewModel),
             PriceViewController(type: .localCurrency, viewModel: viewModel)
         ]
 

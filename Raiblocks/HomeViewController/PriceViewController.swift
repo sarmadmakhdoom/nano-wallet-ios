@@ -96,7 +96,9 @@ class PriceViewController: UIViewController {
 
                     let sats = btcPrice * 100_000_000
                     let myBtcBalance = (sats * balance) / 100_000_000
-                    let localCurrencyValue = myBtcBalance * localCurrencyPrice
+//                    let localCurrencyValue = myBtcBalance * localCurrencyPrice
+                    let localCurrencyValue = balance * btcPrice
+                    
 
                     let string = currency.numberFormatter.string(from: NSNumber(floatLiteral: localCurrencyValue))
                     self.priceLabel?.text = string ?? "\(mark) 0"

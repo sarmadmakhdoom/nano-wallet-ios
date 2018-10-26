@@ -16,13 +16,14 @@ protocol ExchangePair: Decodable {
 
 enum Exchange: String {
 
-    case binance, okex, kucoin
+    case binance, okex, kucoin, cellcoin
 
     var url: URL? {
         switch self {
         case .binance: return URL(string: "https://api.binance.com/api/v1/ticker/24hr?symbol=NANOBTC")
         case .okex: return URL(string: "https://www.okex.com/api/v1/ticker.do?symbol=nano_btc")
         case .kucoin: return URL(string: "https://api.kucoin.com/v1/XRB-BTC/open/tick")
+        case .cellcoin: return URL(string: "https://cellcoin.cc/exchangerate")
         }
     }
 
