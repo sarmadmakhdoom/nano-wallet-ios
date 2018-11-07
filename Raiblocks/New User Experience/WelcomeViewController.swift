@@ -107,7 +107,7 @@ class WelcomeViewController: UIViewController {
         versionLabel.font = Styleguide.Fonts.nunitoRegular.font(ofSize: 14)
         versionLabel.text =
         """
-        CellCoin - Eercast
+        CellCoin
         v\(version) (\(build))
         """
         view.addSubview(versionLabel)
