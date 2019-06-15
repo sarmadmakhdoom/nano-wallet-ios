@@ -92,7 +92,6 @@ final class SendViewModel {
         self.sendSocket = WebSocket(urlString)
 
         sendSocket.event.message = { message in
-//            print(message)
             guard let str = message as? String, let data = str.asUTF8Data() else { return }
 
             if let accountInfo = genericDecoder(decodable: AccountInfo.self, from: data) {
@@ -189,7 +188,15 @@ final class SendViewModel {
         self.accountInfo = accountInfo
         self.previousFrontierHash = accountInfo.frontier
         self.representative = accountInfo.representativeAddress
-
+        
+        print("Calculating Work")
+        let defaults = UserDefaults.standard
+        if let work = defaults.value(forKey: accountInfo.frontier) as? String {
+            self.work = work
+            self.workCalculated?()
+            sendSocket.send(endpoint: .getBlock(withHash: accountInfo.frontier))
+            return
+        }
         // Get head block
         sendSocket.send(endpoint: .getBlock(withHash: accountInfo.frontier))
 
@@ -198,6 +205,8 @@ final class SendViewModel {
             RaiCore().createWork(previousHash: accountInfo.frontier) { createdWork in
                 if let createdWork = createdWork {
                     self.work = createdWork
+                    defaults.set(createdWork, forKey: accountInfo.frontier)
+                    defaults.synchronize()
                     self.workCalculated?()
                 } else {
                     AnalyticsEvent.errorGeneratingWorkForSending.track()

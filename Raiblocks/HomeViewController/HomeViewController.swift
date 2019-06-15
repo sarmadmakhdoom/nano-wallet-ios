@@ -28,6 +28,8 @@ class HomeViewController: UIViewController {
     private weak var refreshControl: UIRefreshControl?
     private weak var tableView: UITableView?
     private weak var sendButton: NanoButton?
+    
+    var sendViewModel: SendViewModel?
 
     // MARK: -
 
@@ -74,6 +76,12 @@ class HomeViewController: UIViewController {
             .startWithValues { _ in
                 if let _ = self.tableView?.refreshControl?.isRefreshing {
                     self.tableView?.refreshControl?.endRefreshing()
+                    if self.sendViewModel == nil {
+                        self.sendViewModel = SendViewModel(homeSocket: self.viewModel.socket)
+                    }else{
+                        self.sendViewModel?.checkAndOpenSocket()
+                    }
+                    self.sendViewModel?.sendSocket.send(endpoint: .accountInfo(address: viewModel.address))
                 }
             }
 
@@ -241,6 +249,8 @@ class HomeViewController: UIViewController {
     }
 
     @objc func sendNano() {
+        self.sendViewModel?.sendSocket.close()
+        self.sendViewModel = nil
         viewModel.isCurrentlySending.value = true
 
         let vc = SendViewController(viewModel: SendViewModel(homeSocket: self.viewModel.socket))
