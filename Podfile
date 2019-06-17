@@ -8,7 +8,7 @@ workspace 'Raiblocks'
 target 'Raiblocks' do
   pod 'SwiftWebSocket'
   pod 'ReactiveSwift', '~> 3.0'
-  pod 'ReactiveCocoa', '~> 7.0.1'
+  pod 'ReactiveCocoa'
   pod 'Cartography', '~> 2.1.0'
   pod "EFQRCode", '~> 4.1.0'
   pod 'Fabric'

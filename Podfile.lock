@@ -5,8 +5,8 @@ PODS:
   - EFQRCode (4.1.0)
   - Fabric (1.7.13)
   - M13Checkbox (3.2.2)
-  - ReactiveCocoa (7.0.1):
-    - ReactiveSwift (~> 3.0)
+  - ReactiveCocoa (7.2.0):
+    - ReactiveSwift (~> 3.1)
   - ReactiveSwift (3.1.0):
     - Result (~> 3.2)
   - Realm (3.11.0):
@@ -23,7 +23,7 @@ DEPENDENCIES:
   - EFQRCode (~> 4.1.0)
   - Fabric
   - M13Checkbox
-  - ReactiveCocoa (~> 7.0.1)
+  - ReactiveCocoa
   - ReactiveSwift (~> 3.0)
   - RealmSwift
   - SwiftWebSocket
@@ -48,13 +48,13 @@ SPEC CHECKSUMS:
   EFQRCode: f644c667b632a47bd0256e568418d9fc75dfce19
   Fabric: 25d0963b691fc97be566392243ff0ecef5a68338
   M13Checkbox: a8c2491cfbbca10797925fd0b9154a782bf40d89
-  ReactiveCocoa: a1b5d502d0d1534f9a72981a485b297b17127f83
+  ReactiveCocoa: 476dae7ca790f40d30d186a1bd7ebae4290395d5
   ReactiveSwift: 5b26d2e988fe0eed2daf48c4054d1de74db50184
   Realm: 92f09a102692b96a9a10e9617f214f15c5ab85fc
   RealmSwift: 5f0481cd658bb751c509314b964a35eaa264d2cf
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   SwiftWebSocket: 612c9729fd503cb6b0b8b45390c788686dac306f
 
-PODFILE CHECKSUM: 595e56a08a87ee4454cdb1c06768aa72e365df15
+PODFILE CHECKSUM: e5da6549933d4a62b139f31dcf91f50b6cc0a2d1
 
 COCOAPODS: 1.5.2
